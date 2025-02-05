@@ -7,23 +7,23 @@
 
 namespace generation {
 
-	void Random(int n, std::vector<int>& vect) {
-		srand(time(0));
-		for (int i = 0; i < n; i++) {
+	void Random(size_t n, std::vector<int>& vect) {
+		srand(static_cast<unsigned int>(time(0)));
+		for (size_t i = 0; i < n; i++) {
 			vect.push_back(rand() % n / 5);
 		}
 	}
-	void Sorted(int n, std::vector<int>& vect) {
+	void Sorted(size_t n, std::vector<int>& vect) {
 		for (int i = 0; i < n; i++) {
 			vect.push_back(i);
 		}
 	}
-	void Reversed(int n, std::vector<int>& vect) {
-		for (int i = n; i > 0; i--) {
+	void Reversed(size_t n, std::vector<int>& vect) {
+		for (int i = static_cast<int>(n); i > 0; i--) {
 			vect.push_back(i);
 		}
 	}
-	void Transposition(int n, std::vector<int>& vect) {
+	void Transposition(size_t n, std::vector<int>& vect) {
 		for (int i = 0; i < n; i++) {
 			vect.push_back(i);
 		}

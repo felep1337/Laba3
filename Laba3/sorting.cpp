@@ -1,9 +1,10 @@
 #include "sorting.h"
+#include "algorithm"
 
 using namespace std;
 
 namespace Sorting {
-	vector<int> combsort(vector<int>& vect) {
+	void combsort(vector<int>& vect) {
 		int n = (int)vect.size();
 		int step = n - 1;
 		double reduction_factor = 1.25;
@@ -15,12 +16,11 @@ namespace Sorting {
 				}
 			}
 		}
-		return vect;
 	}
-	void merge(vector<int>& vect, int left_index, int new_index, int right_index) {
+	void merge(vector<int>& vect, size_t left_index, size_t new_index, size_t right_index) {
 
-		int lenght_first = new_index - left_index + 1;
-		int lenght_second = right_index - new_index;
+		size_t lenght_first = new_index - left_index + 1;
+		size_t lenght_second = right_index - new_index;
 
 		vector<int> temp_vect1(lenght_first);
 		vector<int> temp_vect2(lenght_second);
@@ -34,7 +34,7 @@ namespace Sorting {
 
 		int index_first = 0;
 		int index_second = 0;
-		int index_vect = left_index;
+		size_t index_vect = left_index;
 
 		while (index_first < lenght_first && index_second < lenght_second) {
 			if (temp_vect1[index_first] <= temp_vect2[index_second]) {
@@ -58,13 +58,21 @@ namespace Sorting {
 			index_vect++;
 		}
 	}
-	void mergeSort(vector<int>& vect, int left_index, int right_index) {
+	void mergeSort(vector<int>& vect, size_t left_index, size_t right_index) {
 		if (left_index < right_index) {
-			int new_index = left_index + (right_index - left_index) / 2;
+			size_t new_index = left_index + (right_index - left_index) / 2;
 			mergeSort(vect, left_index, new_index);
 			mergeSort(vect, new_index + 1, right_index);
 
 			merge(vect, left_index, new_index, right_index);
 		}
+	}
+	void mergeSortWrapper(std::vector<int>& vect) {
+		if (!vect.empty()) {
+			mergeSort(vect, 0, static_cast<int>(vect.size()) - 1);
+		}
+	}
+	void imsortfunc(std::vector<int>& vect) {
+		std::sort(vect.begin(), vect.end());
 	}
 }

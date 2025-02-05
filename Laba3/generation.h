@@ -7,10 +7,10 @@
 
 namespace generation {
 	
-	void Random(int n, std::vector<int>& vect);
-	void Sorted(int n, std::vector<int>& vect);
-	void Reversed(int n, std::vector<int>& vect);
-	void Transposition(int n, std::vector<int>& vect);
+	void Random(size_t n, std::vector<int>& vect);
+	void Sorted(size_t n, std::vector<int>& vect);
+	void Reversed(size_t n, std::vector<int>& vect);
+	void Transposition(size_t n, std::vector<int>& vect);
 }
 
 #endif
